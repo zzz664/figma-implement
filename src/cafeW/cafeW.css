@@ -42,6 +42,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding-inline: var(--header-padding-inline);
+  border-bottom: 1px solid rgba(255, 252, 249, 0.1);
 
   .link-list {
     inline-size: var(--link-list-width);
@@ -106,50 +107,40 @@ header {
 }
 
 .depth-2-nav {
+  --nav-width: calc(100vw - (var(--nav-padding-inline) * 2));
   --nav-height: 195px;
   --nav-padding-inline: 8.3333vw;
   --nav-padding-block: calc((var(--nav-height) - var(--nav-section-height)) / 2);
-  --nav-margin-inline: calc((100vw - (var(--nav-padding-inline) * 2) - (var(--nav-section-width) * 5)) / 4);
   --nav-section-width: 180px;
   --nav-section-height: 101px;
 
-  display: flow-root;
-  background-color: var(--black, #282725);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--black, #282725);
   color: white;
-  padding-block: var(--nav-padding-block);
+  inline-size: var(--nav-width);
+  block-size: calc(195px - (var(--nav-padding-block) * 2));
   padding-inline: var(--nav-padding-inline);
-  width: calc(100vw - (var(--nav-padding-inline) * 2));
-  height: auto;
-  min-height: calc(var(--nav-height) - (var(--nav-padding-block) * 2));
+  padding-block: var(--nav-padding-block);
 
   .depth-2-nav-section {
-    float: left;
-    width: var(--nav-section-width);
-    height: var(--nav-section-height);
-    font-size: 17px;
+    inline-size: var(--nav-section-width);
+    block-size: var(--nav-section-height);
+
+    h3 {
+      font-size: 20px;
+      font-weight: 500;
+      block-size: 25px;
+    }
 
     li {
       font-size: 15px;
       font-weight: 200;
 
-      &:not(:first-child):not(:last-child) {
-        margin-block: 6px;
-      }
-    }
-
-    &:not(:first-child) {
-      margin-inline-start: var(--nav-margin-inline);
-    }
-  }
-
-  @media (width <= 800px) {
-    .depth-2-nav-section:nth-child(n) {
-      float: none;
-      width: 100%;
-      margin-block-start: 10px;
-
-      &:not(:first-child) {
-        margin-inline-start: 0;
+      &:nth-child(n + 2) {
+        margin-block-start: 7px;
       }
     }
   }
