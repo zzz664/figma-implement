@@ -1,5 +1,10 @@
 * {
   --black: #282725;
+  --hero-bg-color: #f3d6b0;
+  --deep-oak: #412311;
+  --don-juan: #5f4c4c;
+  --pale-brown: #a37356;
+  --terra-cotta: #e27762;
 
   margin: 0;
   padding: 0;
@@ -162,6 +167,198 @@ header {
 
     @media (width <= 1004px) {
       margin-block: 10px;
+    }
+  }
+}
+
+.hero-beverages {
+  --hero-height: 600px;
+  --phrase-width: 402px;
+  --phrase-height: 397px;
+  --beverage-01-width: 283px;
+  --beverage-01-height: 428px;
+  --beverage-02-width: 283px;
+  --beverage-02-height: 428px;
+  --beverage-03-width: 223px;
+  --beverage-03-height: 361px;
+
+  position: relative;
+  background: var(--hero-bg-color, #f3d6b0);
+  inline-size: 100vw;
+  block-size: var(--hero-height);
+
+  .catch-phrase {
+    position: absolute;
+    left: 8.264%;
+    top: calc(var(--hero-height) * 0.09464);
+    inline-size: var(--phrase-width);
+    block-size: var(--phrase-height);
+    letter-spacing: 0.1em;
+    text-align: center;
+
+    p:nth-of-type(1) {
+      font-size: 40px;
+      block-size: 50px;
+      color: var(--pale-brown);
+    }
+
+    span {
+      position: relative;
+      display: inline-block;
+      inline-size: 400px;
+      color: var(--pale-brown);
+      font-size: 40px;
+
+      &:nth-of-type(1) {
+        block-size: 50px;
+
+        &::before,
+        &::after {
+          content: '';
+          position: relative;
+          bottom: 21%;
+          display: inline-block;
+          inline-size: 160px;
+          border-bottom: 2px solid var(--pale-brown);
+        }
+
+        &::before {
+          margin-inline-end: 10px;
+        }
+
+        &::after {
+          margin-inline-start: 10px;
+        }
+      }
+
+      &:nth-of-type(2) {
+        position: relative;
+        border-top: 2px solid var(--pale-brown);
+      }
+    }
+
+    p:nth-of-type(2) {
+      font-size: 90px;
+      font-weight: 900;
+      line-height: 0.9;
+      color: var(--terra-cotta);
+    }
+
+    p:nth-of-type(3) {
+      font-size: 26px;
+      padding-block-start: 10px;
+      block-size: 33px;
+      color: var(--pale-brown);
+    }
+
+    .detail-button {
+      background: transparent;
+      border: 2px solid var(--terra-cotta);
+      border-radius: 3px;
+      color: var(--terra-cotta);
+      margin-block-start: 40px;
+      padding-inline: 25px;
+      padding-block: 10px;
+      inline-size: 128px;
+      block-size: 40px;
+    }
+  }
+
+  .beverage {
+    position: absolute;
+
+    .beverage-title {
+      position: relative;
+      inline-size: 480px;
+
+      .beverage-title-en {
+        position: absolute;
+        font-size: 28px;
+        text-align: center;
+        line-height: 1;
+        letter-spacing: 0.1em;
+        color: var(--deep-oak);
+      }
+
+      .beverage-title-ko {
+        position: absolute;
+        font-size: 21px;
+        color: var(--don-juan);
+      }
+    }
+
+    &:nth-child(2) {
+      inline-size: var(--beverage-01-width);
+      block-size: var(--beverage-01-height);
+
+      left: 33.402%;
+      top: calc(var(--hero-height) * 0.12885);
+
+      .beverage-title {
+        top: 360px;
+        left: -5px;
+      }
+
+      .beverage-title-en {
+        min-inline-size: 441px;
+        top: -1px;
+      }
+
+      .beverage-title-ko {
+        inline-size: 270px;
+        top: 70px;
+        left: 100px;
+      }
+    }
+
+    &:nth-child(3) {
+      inline-size: var(--beverage-02-width);
+      block-size: var(--beverage-02-height);
+
+      left: 53.4027%;
+      top: calc(var(--hero-height) * 0.0707);
+
+      .beverage-title {
+        top: 6px;
+        left: -70px;
+      }
+
+      .beverage-title-en {
+        min-inline-size: 338px;
+        top: -1px;
+        left: 51px;
+      }
+
+      .beverage-title-ko {
+        inline-size: 106px;
+        top: 39px;
+        left: 167px;
+      }
+    }
+
+    &:nth-child(4) {
+      inline-size: var(--beverage-03-width);
+      block-size: var(--beverage-03-height);
+
+      left: 73.0555%;
+      top: calc(var(--hero-height) * 0.276);
+
+      .beverage-title {
+        top: -54px;
+        left: -53px;
+      }
+
+      .beverage-title-en {
+        min-inline-size: 293px;
+        top: -1px;
+        left: 89px;
+      }
+
+      .beverage-title-ko {
+        inline-size: 169px;
+        top: 70px;
+        left: 151px;
+      }
     }
   }
 }
