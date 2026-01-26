@@ -35,6 +35,7 @@ a {
 .notice-bar {
   --inline-padding: 30px;
   --block-padding: 19px;
+
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -43,8 +44,8 @@ a {
   bottom: 34px;
   left: 50%;
   transform: translateX(-50%);
-  padding-block: 19px;
-  padding-inline: 30px;
+  padding-block: var(--block-padding);
+  padding-inline: var(--inline-padding);
   border-radius: 60px;
   z-index: 1;
   background: rgba(226, 119, 98, 0.9);
@@ -78,6 +79,19 @@ a {
     color: white;
     cursor: pointer;
   }
+}
+
+.go-to-top-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  border: none;
+  background: var(--terra-cotta);
+  inline-size: 60px;
+  aspect-ratio: 1/1;
+  z-index: 1;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 header {
