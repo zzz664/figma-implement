@@ -13,6 +13,7 @@
 }
 
 body {
+  overflow-x: hidden;
   font-family: 'Spoqa Han Sans Neo', 'sans-serif';
 }
 
@@ -427,6 +428,85 @@ header {
         inline-size: 169px;
         top: 70px;
         left: 151px;
+      }
+    }
+  }
+}
+
+.drop-down-container {
+  --select-color: var(--black);
+  --unselect-color: white;
+  --arrow-color: var(--up-arrow-color);
+  inline-size: 100vw;
+
+  .drop-down-bar {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: end;
+    border: none;
+    block-size: 64px;
+  }
+
+  .drop-down-menu {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+    background: var(--select-color);
+    color: var(--unselect-color);
+    inline-size: calc(100% - 600px);
+    font-size: 16px;
+
+    &:not(strong) {
+      font-weight: 200;
+    }
+
+    &:nth-of-type(2) {
+      inline-size: 600px;
+      padding-inline-end: 120px;
+    }
+  }
+
+  .up-down-arrow {
+    inline-size: 24px;
+    aspect-ratio: 1/1;
+    margin-inline-end: 30px;
+    --arrow-color: var(--unselect-color);
+    transform: scaleY(-100%);
+  }
+
+  input[type='radio']:checked {
+    .up-down-arrow:has(+ &) {
+      --arrow-color: var(--select-color);
+      transform: scaleY(100%);
+    }
+
+    .drop-down-menu:has(&) {
+      background: var(--unselect-color);
+      color: var(--select-color);
+    }
+  }
+
+  .lecture-1-dropdown,
+  .lecture-2-dropdown {
+    display: none;
+    inline-size: 100%;
+    block-size: 560px;
+  }
+
+  #lecture-1:checked {
+    .drop-down-bar:has(&) {
+      ~ .lecture-1-dropdown {
+        display: block;
+      }
+    }
+  }
+
+  #lecture-2:checked {
+    .drop-down-bar:has(&) {
+      ~ .lecture-2-dropdown {
+        display: block;
       }
     }
   }
